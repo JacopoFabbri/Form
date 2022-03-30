@@ -16,7 +16,7 @@ namespace SecondTry
         {
         }
 
-        public virtual DbSet<Occupazione> Occupaziones { get; set; } = null!;
+        public virtual DbSet<Occupazione> Occupazione { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

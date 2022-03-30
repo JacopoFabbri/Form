@@ -27,7 +27,7 @@ namespace SecondTry
             {
                 var pathNewDirectory = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\" + textBox1.Text;
                 Directory.CreateDirectory(pathNewDirectory);
-                Context.Occupaziones.Add(new Occupazione() { Indirizzo = textBox1.Text, Commessa = textBox2.Text + "", DataInserimento = DateTime.Now, Cartella_Destinazione = pathNewDirectory });
+                Context.Occupazione.Add(new Occupazione() { Indirizzo = textBox1.Text, Commessa = textBox2.Text + "", DataInserimento = DateTime.Now, Cartella_Destinazione = pathNewDirectory });
                 Context.SaveChanges();
                 this.Close();
             }

@@ -27,7 +27,7 @@ namespace SecondTry
         {
             try
             {
-                ListaOccupazione = Context.Occupaziones.Where(x => x.Id != 0).ToList();
+                ListaOccupazione = Context.Occupazione.Where(x => x.Id != 0).ToList();
                 foreach (var occupazione in ListaOccupazione)
                 {
                     listView1.Items.Add(occupazione.Indirizzo);
@@ -61,7 +61,7 @@ namespace SecondTry
         {
             try
             {
-                ListaOccupazione = Context.Occupaziones.Where(x => x.Id != 0).ToList();
+                ListaOccupazione = Context.Occupazione.Where(x => x.Id != 0).ToList();
                 listView1.Items.Clear();
                 foreach (var occupazione in ListaOccupazione)
                 {
@@ -83,7 +83,7 @@ namespace SecondTry
         {
             try
             {
-                Context.Occupaziones.Remove(Context.Occupaziones.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0]);
+                Context.Occupazione.Remove(Context.Occupazione.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0]);
                 Context.SaveChanges();
                 UpdateList();
                 MessageBox.Show("ho cancellato il record dal db. Se si vuole cancellare anche i file procedi manualmente");
@@ -98,9 +98,9 @@ namespace SecondTry
             try
             {
                 if (flag)
-                    ListaOccupazione = Context.Occupaziones.Where(x => x.Indirizzo.Contains(s)).ToList();
+                    ListaOccupazione = Context.Occupazione.Where(x => x.Indirizzo.Contains(s)).ToList();
                 else
-                    ListaOccupazione = Context.Occupaziones.Where(x => x.Commessa.Contains(s)).ToList();
+                    ListaOccupazione = Context.Occupazione.Where(x => x.Commessa.Contains(s)).ToList();
 
                 listView1.Items.Clear();
                 foreach (var occupazione in ListaOccupazione)
@@ -119,7 +119,7 @@ namespace SecondTry
         }
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            var pathNewDirectory =  Context.Occupaziones.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0].Cartella_Destinazione;
+            var pathNewDirectory =  Context.Occupazione.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0].Cartella_Destinazione;
             OpenFolder(pathNewDirectory);
         }
         private void OpenFolder(string folderPath)
