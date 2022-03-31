@@ -16,42 +16,31 @@ namespace SecondTry
         public static OccupazioneContext Context = new OccupazioneContext();
         public static List<Occupazione> ListaOccupazione = new List<Occupazione>();
         public static Operazioni Operazione;
+        private static String Path = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\";
         public Progetto()
         {
             InitializeComponent();
             button1.Enabled = false;
             button4.Enabled = false;
+            button8.Enabled = false;
         }
 
         private void Progetto_Load(object sender, EventArgs e)
         {
-            try
-            {
-                ListaOccupazione = Context.Occupazione.Where(x => x.Id != 0).ToList();
-                foreach (var occupazione in ListaOccupazione)
-                {
-                    listView1.Items.Add(occupazione.Indirizzo);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Controllare la connessione al Database");
-            }
+            UpdateList();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Operazione = new Operazioni(ListaOccupazione[listView1.SelectedIndices[0]]);
             Operazione.ShowDialog();
         }
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             button1.Enabled = true;
             button4.Enabled = true;
+            button8.Enabled = true;
             Operazione = null;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             var ins = new Inserimento(Context, this);
@@ -65,7 +54,7 @@ namespace SecondTry
                 listView1.Items.Clear();
                 foreach (var occupazione in ListaOccupazione)
                 {
-                    listView1.Items.Add(occupazione.Indirizzo);
+                    listView1.Items.Add(occupazione.Indirizzo + "   " + occupazione.Commessa);
                 }
             }
             catch (Exception)
@@ -73,17 +62,18 @@ namespace SecondTry
                 MessageBox.Show("Controllare la connessione al Database");
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             UpdateList();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             try
             {
-                Context.Occupazione.Remove(Context.Occupazione.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0]);
+                foreach (int element in listView1.SelectedIndices)
+                {
+                    Context.Occupazione.Remove(Context.Occupazione.Where((x) => x.Id == ListaOccupazione[element].Id).ToList()[0]);
+                }
                 Context.SaveChanges();
                 UpdateList();
                 MessageBox.Show("ho cancellato il record dal db. Se si vuole cancellare anche i file procedi manualmente");
@@ -119,7 +109,7 @@ namespace SecondTry
         }
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            var pathNewDirectory =  Context.Occupazione.Where((x) => x.Indirizzo == ListaOccupazione[listView1.SelectedIndices[0]].Indirizzo).ToList()[0].Cartella_Destinazione;
+            var pathNewDirectory = Context.Occupazione.Where((x) => x.Id == ListaOccupazione[listView1.SelectedIndices[0]].Id).ToList()[0].Cartella_Destinazione;
             OpenFolder(pathNewDirectory);
         }
         private void OpenFolder(string folderPath)
@@ -141,8 +131,15 @@ namespace SecondTry
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            var pathNewDirectory = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\";
+            var pathNewDirectory = Path;
             OpenFolder(pathNewDirectory);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var value = Context.Occupazione.Where((x) => x.Id == ListaOccupazione[listView1.SelectedIndices[0]].Id).ToList()[0];
+            var UpdateForm = new Update(Context, this, value);
+            UpdateForm.ShowDialog();
         }
     }
 

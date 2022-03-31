@@ -14,6 +14,7 @@ namespace SecondTry
     {
         private OccupazioneContext Context;
         private Progetto FormPrecedente;
+        private static String Path = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\";
         public Inserimento(OccupazioneContext context, Progetto progetto)
         {
             this.FormPrecedente = progetto;
@@ -25,11 +26,18 @@ namespace SecondTry
         {
             try
             {
-                var pathNewDirectory = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\" + textBox1.Text;
+                var pathNewDirectory = Path + textBox1.Text;
                 Directory.CreateDirectory(pathNewDirectory);
-                Context.Occupazione.Add(new Occupazione() { Indirizzo = textBox1.Text, Commessa = textBox2.Text + "", DataInserimento = DateTime.Now, Cartella_Destinazione = pathNewDirectory });
-                Context.SaveChanges();
-                this.Close();
+                if (Context.Occupazione.Where(x => x.Indirizzo == textBox1.Text).ToList().Count() > 0)
+                {
+                    MessageBox.Show("Indirizzo Gia Presente nel DB");
+                }
+                else
+                {
+                    Context.Occupazione.Add(new Occupazione() { Indirizzo = textBox1.Text, Commessa = textBox2.Text + "", DataInserimento = DateTime.Now, Cartella_Destinazione = pathNewDirectory });
+                    Context.SaveChanges();
+                    this.Close();
+                }
             }
             catch (Exception)
             {
@@ -40,6 +48,11 @@ namespace SecondTry
         private void Inserimento_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormPrecedente.UpdateList();
+        }
+
+        private void Inserimento_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
