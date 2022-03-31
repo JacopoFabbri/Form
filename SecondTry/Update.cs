@@ -56,7 +56,7 @@ namespace SecondTry
                     MessageBox.Show("Modifica Effettuata nel db. Non è stato possibile cambiare il nome della cartella");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Impossibile esguire l'aggiornamento dei valori");
             }
