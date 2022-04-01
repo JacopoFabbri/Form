@@ -134,7 +134,6 @@ namespace SecondTry
             var pathNewDirectory = Path;
             OpenFolder(pathNewDirectory);
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
             var value = Context.Occupazione.Where((x) => x.Id == ListaOccupazione[listView1.SelectedIndices[0]].Id).ToList()[0];
