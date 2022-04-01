@@ -37,9 +37,15 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -180,9 +186,15 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.button6, 0, 8);
             this.tableLayoutPanel3.Controls.Add(this.textBox1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.button5, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.button7, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.button9, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.button10, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.button11, 0, 6);
+            this.tableLayoutPanel3.Controls.Add(this.button12, 0, 7);
+            this.tableLayoutPanel3.Controls.Add(this.button6, 0, 8);
+            this.tableLayoutPanel3.Controls.Add(this.button13, 0, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(641, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 9;
@@ -196,22 +208,10 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(138, 490);
             this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(3, 435);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(132, 52);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Apri Cartella";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox1
             // 
@@ -234,6 +234,99 @@
             this.button5.Text = "Ricerca";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button6.Location = new System.Drawing.Point(3, 435);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(132, 52);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "Apri Cartella";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button7.Location = new System.Drawing.Point(3, 165);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(132, 48);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "Apri Cartella";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button9.Location = new System.Drawing.Point(3, 219);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(132, 48);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "Apri Cartella";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button10.Location = new System.Drawing.Point(3, 273);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(132, 48);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Apri Cartella";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button11.Location = new System.Drawing.Point(3, 327);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(132, 48);
+            this.button11.TabIndex = 6;
+            this.button11.Text = "Apri Cartella";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button12.Location = new System.Drawing.Point(3, 381);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(132, 48);
+            this.button12.TabIndex = 7;
+            this.button12.Text = "Apri Cartella Superiore";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button13.Location = new System.Drawing.Point(3, 111);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(132, 48);
+            this.button13.TabIndex = 8;
+            this.button13.Text = "Apri Cartella";
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // Operazioni
             // 
@@ -264,8 +357,14 @@
         private Button button4;
         private Button button8;
         private TableLayoutPanel tableLayoutPanel3;
-        private Button button6;
         private TextBox textBox1;
         private Button button5;
+        private Button button7;
+        private Button button9;
+        private Button button10;
+        private Button button11;
+        private Button button12;
+        private Button button6;
+        private Button button13;
     }
 }

@@ -41,7 +41,7 @@ namespace SecondTry
                     Lista.Add(new VisualString() { File_Name = elem, Path = file });
                 }
                 listView1.Items.Clear();
-                foreach(var file in Lista)
+                foreach (var file in Lista)
                 {
                     listView1.Items.Add(file.File_Name);
                 }
@@ -102,7 +102,22 @@ namespace SecondTry
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var partenza = Lista[listView1.SelectedIndices[0]].Path;
+                var arrivo = Occupazione.Cartella_Destinazione + "\\" + Lista[listView1.SelectedIndices[0]].File_Name;
+                File.Copy(partenza, arrivo);
+                MessageBox.Show("Inserito Correttamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            OpenFolder(Occupazione.Cartella_Destinazione);
         }
     }
     internal class VisualString
