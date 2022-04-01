@@ -15,7 +15,6 @@ namespace SecondTry
     {
         public static OccupazioneContext Context = new OccupazioneContext();
         public static List<Occupazione> ListaOccupazione = new List<Occupazione>();
-        public static Operazioni Operazione;
         private static String Path = "\\\\192.168.1.250\\Occupazioni Suolo\\Test Nuovo Programma\\";
         public Progetto()
         {
@@ -24,14 +23,14 @@ namespace SecondTry
             button4.Enabled = false;
             button8.Enabled = false;
         }
-
         private void Progetto_Load(object sender, EventArgs e)
         {
             UpdateList();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Operazione = new Operazioni(ListaOccupazione[listView1.SelectedIndices[0]]);
+            var value = Context.Occupazione.Where((x) => x.Id == ListaOccupazione[listView1.SelectedIndices[0]].Id).ToList()[0];
+            var Operazione = new Operazioni();
             Operazione.ShowDialog();
         }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
