@@ -22,7 +22,7 @@ namespace SecondTry
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=Occupazione;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=93.95.221.22;Initial Catalog=Occupazione;Integrated Security=False;User Id=sa;Password=C0rtexlan?21");
             }
         }
 

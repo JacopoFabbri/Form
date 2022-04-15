@@ -39,12 +39,12 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -235,20 +235,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(3, 435);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(132, 52);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Apri Cartella";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -259,8 +245,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(132, 48);
             this.button7.TabIndex = 3;
-            this.button7.Text = "Apri Cartella";
+            this.button7.Text = "Passo Carraio";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button9
             // 
@@ -272,8 +259,9 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(132, 48);
             this.button9.TabIndex = 4;
-            this.button9.Text = "Apri Cartella";
+            this.button9.Text = "Modulo A";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -285,8 +273,9 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(132, 48);
             this.button10.TabIndex = 5;
-            this.button10.Text = "Apri Cartella";
+            this.button10.Text = "Cavi";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -298,8 +287,9 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(132, 48);
             this.button11.TabIndex = 6;
-            this.button11.Text = "Apri Cartella";
+            this.button11.Text = "Tutte le Cartelle";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -315,6 +305,20 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button6.Location = new System.Drawing.Point(3, 435);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(132, 52);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "Apri Cartella";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button13
             // 
             this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -325,8 +329,9 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(132, 48);
             this.button13.TabIndex = 8;
-            this.button13.Text = "Apri Cartella";
+            this.button13.Text = "Ponteggi e Cesate";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Operazioni
             // 

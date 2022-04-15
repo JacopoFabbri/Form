@@ -55,8 +55,9 @@ namespace SecondTry
                     listView1.Items.Add(occupazione.Indirizzo + "   " + occupazione.Commessa);
                 }
             }
-            catch (Exception)
+            catch (Exception ecx)
             {
+                MessageBox.Show(ecx.Message);
                 MessageBox.Show("Controllare la connessione al Database");
             }
         }

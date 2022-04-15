@@ -13,7 +13,7 @@ namespace SecondTry
 {
     public partial class Operazioni : Form
     {
-        private static String Path = "\\\\192.168.1.250\\Occupazioni Suolo\\Documenti per Occupazione\\";
+        private static String Path = "\\\\192.168.1.250\\Occupazioni Suolo\\Documenti per Occupazione\\_per programma Jacopo\\";
         private List<VisualString> Lista = new List<VisualString>();
         private Occupazione Occupazione;
         public Operazioni(Occupazione oc)
@@ -99,14 +99,61 @@ namespace SecondTry
             var pathNewDirectory = Path;
             OpenFolder(pathNewDirectory);
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                var partenza = Lista[listView1.SelectedIndices[0]].Path;
-                var arrivo = Occupazione.Cartella_Destinazione + "\\" + Lista[listView1.SelectedIndices[0]].File_Name;
-                File.Copy(partenza, arrivo);
+                var attr = File.GetAttributes(Lista[listView1.SelectedIndices[0]].Path);
+                if (!attr.HasFlag(FileAttributes.Directory))
+                {
+                    foreach(int selectedIndex in listView1.SelectedIndices)
+                    {
+                        File.Copy(Lista[selectedIndex].Path, Occupazione.Cartella_Destinazione + "\\" + Lista[selectedIndex].File_Name);
+                    }
+                }
+                else
+                {
+                    foreach (int selectedIndex in listView1.SelectedIndices)
+                    {
+                        var dInfoT = new DirectoryInfo(Lista[selectedIndex].Path);
+                        if (!dInfoT.Name.Equals("Ponteggi e Cesate"))
+                        {
+                            var partenza = Path + dInfoT.Name + "\\";
+                            var arrivo = Occupazione.Cartella_Destinazione + "\\" + dInfoT.Name + "\\";
+                            Directory.CreateDirectory(arrivo);
+                            foreach (var d in Directory.GetDirectories(partenza))
+                            {
+                                var dInfo = new DirectoryInfo(d);
+                                Directory.CreateDirectory(arrivo + dInfo.Name);
+                            }
+                            foreach (var f in Directory.GetFiles(partenza))
+                            {
+                                var fInfo = new FileInfo(f);
+                                var fInfoArrivo = new FileInfo(arrivo + fInfo.Name);
+                                if (!fInfoArrivo.Exists)
+                                    File.Copy(f, arrivo + fInfo.Name);
+                            }
+                        }
+                        else
+                        {
+                            var partenza = Path + dInfoT.Name + "\\";
+                            var arrivo = Occupazione.Cartella_Destinazione + "\\";
+                            Directory.CreateDirectory(arrivo);
+                            foreach (var d in Directory.GetDirectories(partenza))
+                            {
+                                var dInfo = new DirectoryInfo(d);
+                                Directory.CreateDirectory(arrivo + dInfo.Name);
+                            }
+                            foreach (var f in Directory.GetFiles(partenza))
+                            {
+                                var fInfo = new FileInfo(f);
+                                var fInfoArrivo = new FileInfo(arrivo + fInfo.Name);
+                                if (!fInfoArrivo.Exists)
+                                    File.Copy(f, arrivo + fInfo.Name);
+                            }
+                        }
+                    }
+                }
                 MessageBox.Show("Inserito Correttamente");
             }
             catch (Exception ex)
@@ -114,10 +161,131 @@ namespace SecondTry
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button12_Click(object sender, EventArgs e)
         {
             OpenFolder(Occupazione.Cartella_Destinazione);
+        }
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var partenza = Path + "Ponteggi e Cesate\\";
+                var arrivo = Occupazione.Cartella_Destinazione + "\\";
+                foreach (var d in Directory.GetDirectories(partenza))
+                {
+                    var dInfo = new DirectoryInfo(d);
+                    Directory.CreateDirectory(arrivo + dInfo.Name);
+                }
+                foreach(var f in Directory.GetFiles(partenza))
+                {
+                    var fInfo = new FileInfo(f);
+                    
+                    File.Copy(f, arrivo + fInfo.Name);
+                }
+                MessageBox.Show("Inserito Correttamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var partenza = Path + "Passo Carraio\\";
+                var arrivo = Occupazione.Cartella_Destinazione + "\\Passo Carraio\\";
+                foreach (var d in Directory.GetDirectories(partenza))
+                {
+                    var dInfo = new DirectoryInfo(d);
+                    Directory.CreateDirectory(arrivo + dInfo.Name);
+                }
+                foreach (var f in Directory.GetFiles(partenza))
+                {
+                    var fInfo = new FileInfo(f);
+
+                    File.Copy(f, arrivo + fInfo.Name);
+                }
+                MessageBox.Show("Inserito Correttamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var partenza = Path + "Modulo A\\";
+                var arrivo = Occupazione.Cartella_Destinazione + "\\Modulo A\\";
+                foreach (var d in Directory.GetDirectories(partenza))
+                {
+                    var dInfo = new DirectoryInfo(d);
+                    Directory.CreateDirectory(arrivo + dInfo.Name);
+                }
+                foreach (var f in Directory.GetFiles(partenza))
+                {
+                    var fInfo = new FileInfo(f);
+
+                    File.Copy(f, arrivo + fInfo.Name);
+                }
+                MessageBox.Show("Inserito Correttamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var partenza = Path + "Cavi\\";
+                var arrivo = Occupazione.Cartella_Destinazione + "\\Cavi\\";
+                foreach (var d in Directory.GetDirectories(partenza))
+                {
+                    var dInfo = new DirectoryInfo(d);
+                    Directory.CreateDirectory(arrivo + dInfo.Name);
+                }
+                foreach (var f in Directory.GetFiles(partenza))
+                {
+                    var fInfo = new FileInfo(f);
+
+                    File.Copy(f, arrivo + fInfo.Name);
+                }
+                MessageBox.Show("Inserito Correttamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void UpdateListDirectory()
+        {
+            try
+            {
+                Lista = new List<VisualString>();
+                var listOfPath = Directory.GetDirectories(Path);
+                foreach (var file in listOfPath)
+                {
+                    var elem = file.Remove(0, Path.Length);
+                    Lista.Add(new VisualString() { File_Name = elem, Path = file });
+                }
+                listView1.Items.Clear();
+                foreach (var file in Lista)
+                {
+                    listView1.Items.Add(file.File_Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            UpdateListDirectory();
         }
     }
     internal class VisualString
