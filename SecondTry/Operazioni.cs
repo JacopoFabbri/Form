@@ -24,6 +24,7 @@ namespace SecondTry
         private void Operazioni_Load(object sender, EventArgs e)
         {
             UpdateList();
+            button10.Enabled = false;
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -106,13 +107,21 @@ namespace SecondTry
                 var attr = File.GetAttributes(Lista[listView1.SelectedIndices[0]].Path);
                 if (!attr.HasFlag(FileAttributes.Directory))
                 {
-                    foreach(int selectedIndex in listView1.SelectedIndices)
+                    var nFile = listView1.SelectedIndices.Count;
+                    var trasferiti = 0;
+                    foreach (int selectedIndex in listView1.SelectedIndices)
                     {
-                        File.Copy(Lista[selectedIndex].Path, Occupazione.Cartella_Destinazione + "\\" + Lista[selectedIndex].File_Name);
+                        var fInfoArrivo = new FileInfo(Occupazione.Cartella_Destinazione + "\\" + Lista[selectedIndex].File_Name);
+                        if (!fInfoArrivo.Exists)
+                            File.Copy(Lista[selectedIndex].Path, Occupazione.Cartella_Destinazione + "\\" + Lista[selectedIndex].File_Name);
+                        trasferiti++;
+                        progressBar1.Value = trasferiti*100/nFile;
                     }
                 }
                 else
                 {
+                    var nFile = listView1.SelectedIndices.Count;
+                    var trasferiti = 0;
                     foreach (int selectedIndex in listView1.SelectedIndices)
                     {
                         var dInfoT = new DirectoryInfo(Lista[selectedIndex].Path);
@@ -152,6 +161,8 @@ namespace SecondTry
                                     File.Copy(f, arrivo + fInfo.Name);
                             }
                         }
+                        trasferiti++;
+                        progressBar1.Value = trasferiti * 100 / nFile;
                     }
                 }
                 MessageBox.Show("Inserito Correttamente");
@@ -171,16 +182,27 @@ namespace SecondTry
             {
                 var partenza = Path + "Ponteggi e Cesate\\";
                 var arrivo = Occupazione.Cartella_Destinazione + "\\";
-                foreach (var d in Directory.GetDirectories(partenza))
+                var listaDir = Directory.GetDirectories(partenza);
+                var nFile = listaDir.Length;
+                var trasferiti = 0;
+                foreach (var d in listaDir)
                 {
                     var dInfo = new DirectoryInfo(d);
                     Directory.CreateDirectory(arrivo + dInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
-                foreach(var f in Directory.GetFiles(partenza))
+                var listaFile = Directory.GetFiles(partenza);
+                nFile = listaFile.Length;
+                trasferiti = 0;
+                progressBar1.Value = 0;
+                foreach (var f in listaFile)
                 {
                     var fInfo = new FileInfo(f);
                     
                     File.Copy(f, arrivo + fInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
                 MessageBox.Show("Inserito Correttamente");
             }
@@ -195,16 +217,28 @@ namespace SecondTry
             {
                 var partenza = Path + "Passo Carraio\\";
                 var arrivo = Occupazione.Cartella_Destinazione + "\\Passo Carraio\\";
-                foreach (var d in Directory.GetDirectories(partenza))
+                Directory.CreateDirectory(arrivo);
+                var listaDir = Directory.GetDirectories(partenza);
+                var nFile = listaDir.Length;
+                var trasferiti = 0;
+                foreach (var d in listaDir)
                 {
                     var dInfo = new DirectoryInfo(d);
                     Directory.CreateDirectory(arrivo + dInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
-                foreach (var f in Directory.GetFiles(partenza))
+                var listaFile = Directory.GetFiles(partenza);
+                nFile = listaFile.Length;
+                trasferiti = 0;
+                progressBar1.Value = 0;
+                foreach (var f in listaFile)
                 {
                     var fInfo = new FileInfo(f);
 
                     File.Copy(f, arrivo + fInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
                 MessageBox.Show("Inserito Correttamente");
             }
@@ -219,16 +253,28 @@ namespace SecondTry
             {
                 var partenza = Path + "Modulo A\\";
                 var arrivo = Occupazione.Cartella_Destinazione + "\\Modulo A\\";
-                foreach (var d in Directory.GetDirectories(partenza))
+                Directory.CreateDirectory(arrivo);
+                var listaDir = Directory.GetDirectories(partenza);
+                var nFile = listaDir.Length;
+                var trasferiti = 0;
+                foreach (var d in listaDir)
                 {
                     var dInfo = new DirectoryInfo(d);
                     Directory.CreateDirectory(arrivo + dInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
-                foreach (var f in Directory.GetFiles(partenza))
+                var listaFile = Directory.GetFiles(partenza);
+                nFile = listaFile.Length;
+                trasferiti = 0;
+                progressBar1.Value = 0;
+                foreach (var f in listaFile)
                 {
                     var fInfo = new FileInfo(f);
 
                     File.Copy(f, arrivo + fInfo.Name);
+                    trasferiti++;
+                    progressBar1.Value = trasferiti * 100 / nFile;
                 }
                 MessageBox.Show("Inserito Correttamente");
             }
@@ -241,20 +287,9 @@ namespace SecondTry
         {
             try
             {
-                var partenza = Path + "Cavi\\";
-                var arrivo = Occupazione.Cartella_Destinazione + "\\Cavi\\";
-                foreach (var d in Directory.GetDirectories(partenza))
-                {
-                    var dInfo = new DirectoryInfo(d);
-                    Directory.CreateDirectory(arrivo + dInfo.Name);
-                }
-                foreach (var f in Directory.GetFiles(partenza))
-                {
-                    var fInfo = new FileInfo(f);
-
-                    File.Copy(f, arrivo + fInfo.Name);
-                }
-                MessageBox.Show("Inserito Correttamente");
+                UpdateList();
+                button10.Enabled = false;
+                button11.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -286,6 +321,8 @@ namespace SecondTry
         private void button11_Click(object sender, EventArgs e)
         {
             UpdateListDirectory();
+            button10.Enabled = true;
+            button11.Enabled = false;
         }
     }
     internal class VisualString
